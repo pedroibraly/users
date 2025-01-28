@@ -1,0 +1,36 @@
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class JanelaMensagemJavaFX extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        // Configurando um Timer para exibir a janela a cada 5 minutos
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                // Abrindo a janela na thread da interface gráfica
+                Platform.runLater(() -> mostrarAlerta());
+            }
+        }, 0, 5 * 60 * 1000); // Intervalo de 5 minutos (em milissegundos)
+    }
+
+    // Método para exibir a janela de alerta
+    private void mostrarAlerta() {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Está na hora de conferir a mensagem!", ButtonType.OK);
+        alerta.setTitle("Alerta");
+        alerta.setHeaderText("Aviso Importante");
+        alerta.showAndWait(); // Aguarda o usuário fechar a janela
+    }
+
+    public static void main(String[] args) {
+        launch(args); // Inicia a aplicação JavaFX
+    }
+}
