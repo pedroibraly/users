@@ -2,7 +2,7 @@
   "users": [
     {
       "username": "canellas",
-      "passwordHash": "8a43698d4c432c8db38a9ddf06117e19759c27b5d7c2a5c0dda30f455e96e768",
+      "passwordHash": "3b869e252dba9057df00ba0b98edfbaef133105724c612d25a956df22e058bdc",
       "role": "admin",
       "active": true
     }
